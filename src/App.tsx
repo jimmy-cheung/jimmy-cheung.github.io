@@ -57,7 +57,8 @@ function App() {
     <div className="site-shell">
       <header className="site-header">
         <button className="wordmark" onClick={() => navigate('home')} aria-label="Go to home">
-          <span className="wordmark-mark">J</span>
+          <img className="wordmark-avatar" src="/jimmy.jpg" alt="" />
+          <span>Jimmy Cheung</span>
         </button>
         <nav className={`desktop-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Primary navigation">
           {pages.map((item) => (

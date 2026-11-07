@@ -52,15 +52,12 @@ button,
   font-weight: 600;
 }
 
-.wordmark-mark {
-  display: grid;
-  place-items: center;
+.wordmark-avatar {
+  display: block;
   width: 25px;
   height: 25px;
-  border: 1px solid var(--grey);
   border-radius: 50%;
-  color: var(--white);
-  font-size: 11px;
+  object-fit: cover;
 }
 
 .desktop-nav {
