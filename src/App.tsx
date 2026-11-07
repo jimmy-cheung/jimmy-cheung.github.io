@@ -13,8 +13,8 @@ const pages: { id: Page; label: string }[] = [
 ]
 
 const projects = [
-  { year: '2025', name: 'Bloom App', type: 'Swift Student Challenge' },
-  { year: '2024', name: 'Soark App', type: 'Project planning · prev' },
+  { year: '2027', name: 'Bloom App', type: 'Swift Student Challenge' },
+  { year: '2026', name: 'Soark App', type: 'Project planning · prev' },
 ]
 
 const fade = {
@@ -58,7 +58,6 @@ function App() {
       <header className="site-header">
         <button className="wordmark" onClick={() => navigate('home')} aria-label="Go to home">
           <span className="wordmark-mark">J</span>
-          <span>Jimmy Cheung</span>
         </button>
         <nav className={`desktop-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Primary navigation">
           {pages.map((item) => (
@@ -102,6 +101,7 @@ function App() {
                   <div>
                     <p className="subheading">Currently building:</p>
                     <p><strong>SSC 2027</strong> — Pushing my technical limits to ship something real.</p>
+                    <p className="subheading">previous:</p>
                     <p><strong>Soark App</strong> — A project planning app that turns overwhelming chaos into clear, actionable steps.</p>
                   </div>
                 </div>
