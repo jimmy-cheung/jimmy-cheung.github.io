@@ -1,196 +1,144 @@
-import { motion, type Variants } from 'framer-motion'
-import { ArrowDownRight, ArrowUpRight, Mail } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ArrowUpRight, Copy, Mail, Menu, X } from 'lucide-react'
 import './App.css'
 
-const projects = [
-  {
-    year: '2025',
-    name: 'Soark OS',
-    type: 'Product / SaaS',
-    description: 'A focused operating system for ambitious teams.',
-  },
-  {
-    year: '2024',
-    name: 'VibeKit',
-    type: 'Tool / Creative',
-    description: 'A faster path from a raw idea to a working product.',
-  },
-  {
-    year: '2024',
-    name: 'Signal',
-    type: 'Experiment / AI',
-    description: 'Small tools for making clearer decisions with less noise.',
-  },
+type Page = 'home' | 'about' | 'projects' | 'links'
+
+const pages: { id: Page; label: string }[] = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'links', label: 'Links' },
 ]
 
-const pageVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.08,
-    },
-  },
+const projects = [
+  { year: '2025', name: 'Soark OS', type: 'Product / SaaS' },
+  { year: '2024', name: 'VibeKit', type: 'Tool / Creative' },
+  { year: '2024', name: 'Signal', type: 'Experiment / AI' },
+]
+
+const fade = {
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -10 },
+  transition: { duration: 0.4, ease: 'easeOut' as const },
 }
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: 'easeOut' },
-  },
+function getPageFromHash(): Page {
+  const hash = window.location.hash.slice(1) as Page
+  return pages.some((page) => page.id === hash) ? hash : 'home'
 }
 
 function App() {
+  const [page, setPage] = useState<Page>(getPageFromHash)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  useEffect(() => {
+    const handleHashChange = () => setPage(getPageFromHash())
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
+  const navigate = (nextPage: Page) => {
+    window.history.pushState({}, '', nextPage === 'home' ? window.location.pathname : `#${nextPage}`)
+    setPage(nextPage)
+    setMenuOpen(false)
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }
+
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText('jimmyyycheung@gamil.com')
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 1800)
+  }
+
   return (
     <div className="site-shell">
-      <motion.header
-        className="site-header"
-        initial="hidden"
-        animate="visible"
-        variants={pageVariants}
-      >
-        <motion.a className="wordmark" href="#top" variants={fadeUp}>
-          <span className="wordmark-dot" aria-hidden="true" />
+      <header className="site-header">
+        <button className="wordmark" onClick={() => navigate('home')} aria-label="Go to home">
+          <span className="wordmark-mark">J</span>
           <span>Jimmy Cheung</span>
-        </motion.a>
+        </button>
+        <nav className={`desktop-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Primary navigation">
+          {pages.map((item) => (
+            <button className={page === item.id ? 'active' : ''} key={item.id} onClick={() => navigate(item.id)}>
+              {item.label}
+            </button>
+          ))}
+        </nav>
+        <button className="menu-toggle" onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle navigation">
+          {menuOpen ? <X size={17} /> : <Menu size={17} />}
+        </button>
+      </header>
 
-        <motion.nav className="desktop-nav" aria-label="Primary navigation" variants={fadeUp}>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-          <a href="#media">Media</a>
-        </motion.nav>
+      <main>
+        <AnimatePresence mode="wait">
+          <motion.div key={page} {...fade}>
+            {page === 'home' && (
+              <section className="page home-page">
+                <div className="home-copy">
+                  <p className="eyebrow">Developer &amp; Entrepreneur</p>
+                  <h1>Jimmy<br /><span>Cheung.</span></h1>
+                  <p className="home-note">Building useful things at the intersection of software, design, and AI.</p>
+                  <button className="page-link" onClick={() => navigate('about')}>More about me <ArrowUpRight size={15} /></button>
+                </div>
+                <div className="portrait-wrap">
+                  <img className="portrait" src="/jimmy.jpg" alt="Jimmy Cheung wearing a VR headset" />
+                  <span className="portrait-caption">01 / Self portrait</span>
+                </div>
+              </section>
+            )}
 
-        <motion.a className="header-mail" href="mailto:jimmyyycheung@gamil.com" variants={fadeUp}>
-          <span>Available for a conversation</span>
-          <ArrowUpRight size={14} />
-        </motion.a>
-      </motion.header>
+            {page === 'about' && (
+              <section className="page text-page">
+                <p className="eyebrow">About</p>
+                <h2>Curious by default.<br /><span>Focused by choice.</span></h2>
+                <div className="text-columns">
+                  <p>I&apos;m a developer and entrepreneur building Soark Labs. I care about simple ideas, thoughtful products, and the details that make technology feel natural.</p>
+                  <p>Right now I&apos;m learning in public, exploring AI-native tools, and turning ambitious ideas into useful things.</p>
+                </div>
+              </section>
+            )}
 
-      <motion.main
-        id="top"
-        initial="hidden"
-        animate="visible"
-        variants={pageVariants}
-      >
-        <motion.section className="hero" variants={pageVariants}>
-          <motion.div className="hero-kicker" variants={fadeUp}>
-            <span className="live-dot" /> Developer &amp; Entrepreneur
+            {page === 'projects' && (
+              <section className="page projects-page">
+                <p className="eyebrow">Selected projects</p>
+                <h2>Things I&apos;m<br /><span>building.</span></h2>
+                <div className="project-list">
+                  {projects.map((project, index) => (
+                    <button className="project-row" key={project.name}>
+                      <span className="project-number">0{index + 1}</span>
+                      <span className="project-name">{project.name}</span>
+                      <span className="project-type">{project.type}</span>
+                      <span className="project-year">{project.year}</span>
+                      <ArrowUpRight className="project-arrow" size={17} />
+                    </button>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {page === 'links' && (
+              <section className="page links-page">
+                <p className="eyebrow">Find me online</p>
+                <h2>Links.</h2>
+                <div className="links-list">
+                  <a href="https://x.com/twzkd" target="_blank" rel="noreferrer"><span>X / Twitter</span><ArrowUpRight size={17} /></a>
+                  <a href="https://instagram.com/catchjch" target="_blank" rel="noreferrer"><span>Instagram</span><span className="link-monogram">IG</span></a>
+                  <span className="disabled-link"><span>Discord</span><span>Coming soon</span></span>
+                  <button onClick={copyEmail}><span>{copied ? 'Email copied' : 'Email'}</span>{copied ? <Copy size={17} /> : <Mail size={17} />}</button>
+                </div>
+              </section>
+            )}
           </motion.div>
-          <motion.h1 variants={fadeUp}>
-            Building quietly.
-            <br />
-            <span>Thinking loudly.</span>
-          </motion.h1>
-          <motion.div className="hero-bottom" variants={fadeUp}>
-            <p className="hero-intro">
-              I&apos;m Jimmy Cheung, a developer and entrepreneur building thoughtful
-              products at the intersection of software, design, and AI.
-            </p>
-            <a className="scroll-cue" href="#projects">
-              <span>Scroll to explore</span>
-              <ArrowDownRight size={17} />
-            </a>
-          </motion.div>
-        </motion.section>
-
-        <motion.section className="manifesto" id="experience" variants={fadeUp}>
-          <div className="section-index">01 / Perspective</div>
-          <div className="manifesto-copy">
-            <p className="large-copy">
-              I care about the details that make technology feel <em>obvious</em>,
-              <br className="desktop-break" /> useful, and worth coming back to.
-            </p>
-            <p className="body-copy">
-              Currently building Soark Labs and exploring what comes next. I like
-              small teams, strong opinions, and turning ambitious ideas into things
-              people can actually use.
-            </p>
-          </div>
-        </motion.section>
-
-        <motion.section className="projects-section" id="projects" variants={fadeUp}>
-          <div className="section-heading">
-            <div className="section-index">02 / Selected work</div>
-            <p>Experiments, products, and ideas from the lab.</p>
-          </div>
-          <div className="project-list">
-            {projects.map((project, index) => (
-              <motion.a
-                className="project-row"
-                href="#contact"
-                key={project.name}
-                variants={fadeUp}
-                whileHover="hover"
-                initial="rest"
-              >
-                <span className="project-number">0{index + 1}</span>
-                <span className="project-name">{project.name}</span>
-                <span className="project-description">{project.description}</span>
-                <span className="project-type">{project.type}</span>
-                <motion.span
-                  className="project-year"
-                  variants={{ rest: { color: 'var(--muted)' }, hover: { color: 'var(--orange)' } }}
-                >
-                  {project.year}
-                </motion.span>
-                <motion.span
-                  className="project-arrow"
-                  variants={{ rest: { x: 0, color: 'var(--muted)' }, hover: { x: 4, color: 'var(--orange)' } }}
-                >
-                  <ArrowUpRight size={18} />
-                </motion.span>
-              </motion.a>
-            ))}
-          </div>
-        </motion.section>
-
-        <motion.section className="now-section" id="media" variants={fadeUp}>
-          <div className="section-index">03 / Now</div>
-          <div className="now-grid">
-            <p className="large-copy">Learning in public.<br />Making the next thing.</p>
-            <div className="now-details">
-              <p className="body-copy">
-                Coding, vibecoding, product thinking, and the long game of building
-                a life around meaningful work.
-              </p>
-              <div className="now-status">
-                <span className="live-dot" />
-                <span>Currently online</span>
-                <span className="status-line" />
-                <span>Hong Kong</span>
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        <motion.section className="contact-section" id="contact" variants={fadeUp}>
-          <div className="contact-glow" aria-hidden="true" />
-          <div className="section-index">04 / Contact</div>
-          <div className="contact-content">
-            <p className="contact-label">Have something worth building?</p>
-            <h2>Let&apos;s make it<br /><span>real.</span></h2>
-            <a className="email-link" href="mailto:jimmyyycheung@gamil.com">
-              <span>jimmyyycheung@gamil.com</span>
-              <Mail size={18} />
-            </a>
-          </div>
-        </motion.section>
-      </motion.main>
+        </AnimatePresence>
+      </main>
 
       <footer className="site-footer">
-        <div className="footer-line">
-          <span>© 2025 Jimmy Cheung</span>
-          <span>Built with intent.</span>
-        </div>
-        <div className="footer-links">
-          <a href="https://x.com/twzkd" target="_blank" rel="noreferrer">X / Twitter</a>
-          <a href="https://instagram.com/catchjch" target="_blank" rel="noreferrer">Instagram</a>
-          <span className="disabled-link">Discord / soon</span>
-          <a href="mailto:jimmyyycheung@gamil.com">Email</a>
-        </div>
+        <span>© 2025 Jimmy Cheung</span>
+        <button onClick={() => navigate('links')}>Links <ArrowUpRight size={13} /></button>
       </footer>
     </div>
   )
