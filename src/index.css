@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #e8eaf0;
+  background: #0a0c10;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --bg: #0a0c10;
+  --surface: #11141a;
+  --surface-strong: #171b23;
+  --text: #e8eaf0;
+  --muted: #8e95a3;
+  --faint: #515865;
+  --line: rgba(255, 255, 255, 0.1);
+  --accent: #bd8cff;
+  --accent-strong: #9c62ff;
+  --accent-soft: rgba(189, 140, 255, 0.14);
+  --code: #d3b4ff;
+  --glow: rgba(129, 83, 255, 0.2);
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  color: #17191f;
+  background: #f7f8fa;
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --surface-strong: #f0f2f5;
+  --text: #17191f;
+  --muted: #687080;
+  --faint: #a0a8b5;
+  --line: rgba(20, 25, 35, 0.12);
+  --accent: #7041d4;
+  --accent-strong: #5830b6;
+  --accent-soft: rgba(112, 65, 212, 0.1);
+  --code: #6d3fc6;
+  --glow: rgba(112, 65, 212, 0.16);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: var(--bg); transition: background-color .35s ease, color .35s ease; }
+button, a { font: inherit; }
+a { color: inherit; text-decoration: none; }
+
