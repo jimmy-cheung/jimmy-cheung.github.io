@@ -239,6 +239,34 @@ h2 span {
   font-weight: 500;
 }
 
+.about-extra {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 15px 32px;
+  max-width: 730px;
+  margin: 55px 0 0 22%;
+  padding-top: 23px;
+  border-top: 1px solid var(--line);
+}
+
+.about-extra .subheading {
+  color: var(--white);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.about-extra p {
+  color: var(--grey);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.about-extra p:last-child {
+  color: var(--white);
+}
+
 .coming-soon {
   margin-top: 21px;
   color: var(--dim);
@@ -416,6 +444,12 @@ h2 span {
     grid-template-columns: 1fr;
     gap: 24px;
     margin: 55px 0 0;
+  }
+
+  .about-extra {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-left: 0;
   }
 
   .project-row {

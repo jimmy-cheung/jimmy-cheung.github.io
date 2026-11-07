@@ -58,7 +58,6 @@ function App() {
       <header className="site-header">
         <button className="wordmark" onClick={() => navigate('home')} aria-label="Go to home">
           <img className="wordmark-avatar" src="/jimmy.jpg" alt="" />
-          <span>Jimmy Cheung</span>
         </button>
         <nav className={`desktop-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Primary navigation">
           {pages.map((item) => (
@@ -105,6 +104,12 @@ function App() {
                     <p className="subheading">previous:</p>
                     <p><strong>Soark App</strong> — A project planning app that turns overwhelming chaos into clear, actionable steps.</p>
                   </div>
+                </div>
+                <div className="about-extra">
+                  <p className="subheading">Hobbies &amp; influences:</p>
+                  <p>Football, especially Real Madrid. Computer science, especially the layers beneath the interface. Steve Jobs, for the ambition to change the world. Michael Jackson, for the way he made culture move.</p>
+                  <p className="subheading">School:</p>
+                  <p>Ruian High School</p>
                 </div>
               </section>
             )}
