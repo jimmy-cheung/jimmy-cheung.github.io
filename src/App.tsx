@@ -13,9 +13,8 @@ const pages: { id: Page; label: string }[] = [
 ]
 
 const projects = [
-  { year: '2025', name: 'Soark OS', type: 'Product / SaaS' },
-  { year: '2024', name: 'VibeKit', type: 'Tool / Creative' },
-  { year: '2024', name: 'Signal', type: 'Experiment / AI' },
+  { year: '2025', name: 'Bloom App', type: 'Swift Student Challenge' },
+  { year: '2024', name: 'Soark App', type: 'Project planning · prev' },
 ]
 
 const fade = {
@@ -79,9 +78,12 @@ function App() {
             {page === 'home' && (
               <section className="page home-page">
                 <div className="home-copy">
-                  <p className="eyebrow">Developer &amp; Entrepreneur</p>
-                  <h1>Jimmy<br /><span>Cheung.</span></h1>
-                  <p className="home-note">Building useful things at the intersection of software, design, and AI.</p>
+                  <p className="eyebrow">16 y/o CEO @SoarkLabs</p>
+                  <motion.h1 className="animated-title" initial="initial" animate="animate">
+                    <motion.span variants={fade}>Hello, I&apos;m</motion.span>
+                    <motion.span variants={fade}>Jimmy Cheung.</motion.span>
+                  </motion.h1>
+                  <p className="home-note">Building at the intersection of silicon and interface. Putting a dent in the universe.</p>
                   <button className="page-link" onClick={() => navigate('about')}>More about me <ArrowUpRight size={15} /></button>
                 </div>
                 <div className="portrait-wrap">
@@ -94,10 +96,14 @@ function App() {
             {page === 'about' && (
               <section className="page text-page">
                 <p className="eyebrow">About</p>
-                <h2>Curious by default.<br /><span>Focused by choice.</span></h2>
+                <h2>Hi, I&apos;m Jimmy.<br /><span>I&apos;m 16.</span></h2>
                 <div className="text-columns">
-                  <p>I&apos;m a developer and entrepreneur building Soark Labs. I care about simple ideas, thoughtful products, and the details that make technology feel natural.</p>
-                  <p>Right now I&apos;m learning in public, exploring AI-native tools, and turning ambitious ideas into useful things.</p>
+                  <p>I build at the intersection of silicon and interface. I&apos;m currently reading Patterson &amp; Hennessy to understand the machine, and writing Swift to build products that matter.</p>
+                  <div>
+                    <p className="subheading">Currently building:</p>
+                    <p><strong>SSC 2027</strong> — Pushing my technical limits to ship something real.</p>
+                    <p><strong>Soark App</strong> — A project planning app that turns overwhelming chaos into clear, actionable steps.</p>
+                  </div>
                 </div>
               </section>
             )}
@@ -117,6 +123,7 @@ function App() {
                     </button>
                   ))}
                 </div>
+                <p className="coming-soon">More projects coming soon.</p>
               </section>
             )}
 
