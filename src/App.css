@@ -211,8 +211,44 @@ h2 span {
   display: inline-block;
   min-width: 2.2em;
   min-height: 1em;
-  color: var(--white);
+  color: #fcee0a;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  text-shadow: 0 0 8px rgba(252, 238, 10, .22);
   isolation: isolate;
+}
+
+.about-title::before,
+.about-title::after {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: -9%;
+  width: 118%;
+  height: 2px;
+  content: '';
+  pointer-events: none;
+  opacity: 0;
+}
+
+.about-title::before {
+  background: #00f0ff;
+  box-shadow: 0 7px 0 #ff164b, 0 -12px 0 rgba(252, 238, 10, .75);
+  animation: cyber-scan 10s infinite;
+}
+
+.about-title::after {
+  top: 17%;
+  height: 66%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 7px,
+    rgba(0, 0, 0, .45) 8px,
+    transparent 9px
+  );
+  mix-blend-mode: multiply;
+  animation: cyber-scanlines 10s infinite;
 }
 
 .about-title-layer {
@@ -228,7 +264,8 @@ h2 span {
   position: relative;
   z-index: 2;
   clip-path: inset(0 0 52% 0);
-  text-shadow: -2px 0 #1f8dff;
+  color: #fcee0a;
+  text-shadow: -4px 0 #00f0ff, 0 0 10px rgba(252, 238, 10, .35);
 }
 
 .about-title-bottom {
@@ -236,37 +273,71 @@ h2 span {
   z-index: 1;
   inset: 0;
   clip-path: inset(48% 0 0 0);
-  text-shadow: 2px 0 #ff304f;
+  color: #fcee0a;
+  text-shadow: 4px 0 #ff164b, 0 0 10px rgba(252, 238, 10, .35);
 }
 
 @keyframes cyber-glitch {
-  0%, 91%, 100% {
+  0%, 90%, 100% {
     transform: translateX(0);
     opacity: 1;
     filter: none;
+  }
+  91% {
+    transform: translateX(-13px) skewX(-7deg);
+    opacity: .8;
+    filter: blur(.5px);
   }
   92% {
-    transform: translateX(-8px);
-    opacity: .8;
-    filter: blur(.4px);
-  }
-  93% {
-    transform: translateX(11px);
+    transform: translateX(16px) skewX(8deg);
     opacity: .95;
   }
+  93% {
+    transform: translateX(-7px);
+    opacity: .55;
+  }
   94% {
-    transform: translateX(-4px) skewX(-5deg);
-    opacity: .7;
+    transform: translateX(9px) skewX(4deg);
+    opacity: 1;
+    filter: blur(1px);
   }
   95% {
-    transform: translateX(6px) skewX(4deg);
-    opacity: 1;
-    filter: blur(.8px);
-  }
-  96% {
     transform: translateX(0);
     opacity: 1;
     filter: none;
+  }
+}
+
+@keyframes cyber-scan {
+  0%, 90%, 100% {
+    transform: translateX(-120%) scaleX(.35);
+    opacity: 0;
+  }
+  91% {
+    transform: translateX(-35%) scaleX(.8);
+    opacity: 1;
+  }
+  94% {
+    transform: translateX(130%) scaleX(1.25);
+    opacity: .9;
+  }
+  95% {
+    opacity: 0;
+  }
+}
+
+@keyframes cyber-scanlines {
+  0%, 90%, 100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  92% {
+    opacity: .65;
+    transform: translateX(-3px);
+  }
+  95% {
+    opacity: 0;
+    transform: translateX(3px);
   }
 }
 
