@@ -86,7 +86,7 @@ function App() {
                   <button className="page-link" onClick={() => navigate('about')}>More about me <ArrowUpRight size={15} /></button>
                 </div>
                 <div className="portrait-wrap">
-                  <img className="portrait" src="/jimmy.jpg" alt="Jimmy Cheung wearing a VR headset" />
+                  <img className="portrait" src="/jimmy.jpg" alt="Jimmypic" />
                   <span className="portrait-caption">01 / Self portrait</span>
                 </div>
               </section>
@@ -95,7 +95,10 @@ function App() {
             {page === 'about' && (
               <section className="page text-page">
                 <p className="eyebrow">About</p>
-                <h2>Hi, I&apos;m Jimmy.<br /><span>I&apos;m 16.</span></h2>
+                <h2 className="about-title" aria-label="Me.">
+                  <span className="about-title-layer about-title-top">Me.</span>
+                  <span className="about-title-layer about-title-bottom">Me.</span>
+                </h2>
                 <div className="text-columns">
                   <p>I build at the intersection of silicon and interface. I&apos;m currently reading Patterson &amp; Hennessy to understand the machine, and writing Swift to build products that matter.</p>
                   <div>
@@ -107,8 +110,12 @@ function App() {
                 </div>
                 <div className="about-extra">
                   <p className="subheading">Hobbies &amp; influences:</p>
-                  <p>Football, especially Real Madrid. Computer science, especially the layers beneath the interface. Steve Jobs, for the ambition to change the world. Michael Jackson, for the way he made culture move.</p>
-                  <p className="subheading">School:</p>
+                  <p>Watching and playing soccer. I LOVE Real Madrid!</p>
+                  <p>Listening to music. Micheal Jackson, for the way he made culture move.</p>
+                  <p>Reading books. Herman Hesse, for the way he explored the human condition.</p>
+                  <p>Playing video games. I enjoy the storytelling and world-building in games like The Legend of Zelda, The Elder Scrolls, and The Witcher.</p>
+                  <p>Following the latest tech trends. I'm always excited to see what's new in the world of software and hardware.</p>
+                  <p className="subheading">My School:</p>
                   <p>Ruian High School</p>
                 </div>
               </section>

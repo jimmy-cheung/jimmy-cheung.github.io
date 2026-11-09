@@ -107,7 +107,7 @@ main {
   margin: 0;
   color: var(--grey);
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
@@ -142,7 +142,7 @@ h2 span {
   max-width: 290px;
   margin-top: 38px;
   color: var(--grey);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.7;
 }
 
@@ -165,7 +165,7 @@ h2 span {
   border-bottom: 1px solid var(--grey);
   color: var(--white);
   background: transparent;
-  font-size: 12px;
+  font-size: 13px;
   transition: gap .2s ease-out, color .2s ease-out;
 }
 
@@ -191,7 +191,7 @@ h2 span {
   margin-top: 12px;
   color: var(--dim);
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 10px;
   text-transform: uppercase;
 }
 
@@ -206,6 +206,70 @@ h2 span {
   letter-spacing: -.08em;
 }
 
+.about-title {
+  position: relative;
+  display: inline-block;
+  min-width: 2.2em;
+  min-height: 1em;
+  color: var(--white);
+  isolation: isolate;
+}
+
+.about-title-layer {
+  display: block;
+}
+
+.about-title-top,
+.about-title-bottom {
+  animation: cyber-glitch 10s infinite;
+}
+
+.about-title-top {
+  position: relative;
+  z-index: 2;
+  clip-path: inset(0 0 52% 0);
+  text-shadow: -2px 0 #1f8dff;
+}
+
+.about-title-bottom {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  clip-path: inset(48% 0 0 0);
+  text-shadow: 2px 0 #ff304f;
+}
+
+@keyframes cyber-glitch {
+  0%, 91%, 100% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: none;
+  }
+  92% {
+    transform: translateX(-8px);
+    opacity: .8;
+    filter: blur(.4px);
+  }
+  93% {
+    transform: translateX(11px);
+    opacity: .95;
+  }
+  94% {
+    transform: translateX(-4px) skewX(-5deg);
+    opacity: .7;
+  }
+  95% {
+    transform: translateX(6px) skewX(4deg);
+    opacity: 1;
+    filter: blur(.8px);
+  }
+  96% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: none;
+  }
+}
+
 .text-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -216,7 +280,7 @@ h2 span {
 
 .text-columns p {
   color: var(--grey);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.8;
 }
 
@@ -229,7 +293,7 @@ h2 span {
   margin-bottom: 2px;
   color: var(--white);
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .06em;
   text-transform: uppercase;
 }
@@ -252,14 +316,14 @@ h2 span {
 .about-extra .subheading {
   color: var(--white);
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: .06em;
   text-transform: uppercase;
 }
 
 .about-extra p {
   color: var(--grey);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.8;
 }
 
@@ -271,7 +335,7 @@ h2 span {
   margin-top: 21px;
   color: var(--dim);
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .project-list,
@@ -310,7 +374,7 @@ h2 span {
 .project-year {
   color: var(--dim);
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .project-name {
@@ -340,7 +404,7 @@ h2 span {
 .links-list button,
 .disabled-link {
   grid-template-columns: 1fr 25px;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .links-list a svg,
@@ -362,7 +426,7 @@ h2 span {
 .disabled-link span:last-child {
   justify-self: end;
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 10px;
   text-transform: uppercase;
 }
 
@@ -374,7 +438,7 @@ h2 span {
   border-top: 1px solid var(--line);
   color: var(--dim);
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .site-footer button {
