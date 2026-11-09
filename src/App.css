@@ -218,46 +218,15 @@ h2 span {
   isolation: isolate;
 }
 
-.about-title::before,
-.about-title::after {
-  position: absolute;
-  z-index: 4;
-  top: 50%;
-  left: -9%;
-  width: 118%;
-  height: 2px;
-  content: '';
-  pointer-events: none;
-  opacity: 0;
-}
-
-.about-title::before {
-  background: #00f0ff;
-  box-shadow: 0 7px 0 #ff164b, 0 -12px 0 rgba(252, 238, 10, .75);
-  animation: cyber-scan 10s infinite;
-}
-
-.about-title::after {
-  top: 17%;
-  height: 66%;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 7px,
-    rgba(0, 0, 0, .45) 8px,
-    transparent 9px
-  );
-  mix-blend-mode: multiply;
-  animation: cyber-scanlines 10s infinite;
-}
-
 .about-title-layer {
   display: block;
 }
 
 .about-title-top,
 .about-title-bottom {
-  animation: cyber-glitch 10s infinite;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(1, end);
 }
 
 .about-title-top {
@@ -266,6 +235,7 @@ h2 span {
   clip-path: inset(0 0 52% 0);
   color: #fcee0a;
   text-shadow: -4px 0 #00f0ff, 0 0 10px rgba(252, 238, 10, .35);
+  animation-name: cyber-glitch-top;
 }
 
 .about-title-bottom {
@@ -275,69 +245,82 @@ h2 span {
   clip-path: inset(48% 0 0 0);
   color: #fcee0a;
   text-shadow: 4px 0 #ff164b, 0 0 10px rgba(252, 238, 10, .35);
+  animation-name: cyber-glitch-bottom;
 }
 
-@keyframes cyber-glitch {
-  0%, 90%, 100% {
+@keyframes cyber-glitch-top {
+  0%, 93.3%, 100% {
     transform: translateX(0);
     opacity: 1;
     filter: none;
+    clip-path: inset(0 0 52% 0);
   }
-  91% {
-    transform: translateX(-13px) skewX(-7deg);
+  93.4% {
+    transform: translateX(-10px) skewX(-7deg);
     opacity: .8;
-    filter: blur(.5px);
+    filter: none;
+    clip-path: inset(0 18% 52% 0);
   }
-  92% {
-    transform: translateX(16px) skewX(8deg);
+  93.8% {
+    transform: translateX(14px) skewX(8deg);
     opacity: .95;
+    filter: blur(.4px);
+    clip-path: inset(0 0 52% 15%);
   }
-  93% {
-    transform: translateX(-7px);
+  94.2% {
+    transform: translateX(-6px) skewX(-4deg);
     opacity: .55;
+    filter: none;
+    clip-path: inset(0 27% 52% 5%);
   }
-  94% {
-    transform: translateX(9px) skewX(4deg);
+  94.8% {
+    transform: translateX(8px) skewX(5deg);
     opacity: 1;
-    filter: blur(1px);
+    filter: blur(.5px);
+    clip-path: inset(0 7% 52% 22%);
   }
-  95% {
+  95.8% {
     transform: translateX(0);
     opacity: 1;
     filter: none;
+    clip-path: inset(0 0 52% 0);
   }
 }
 
-@keyframes cyber-scan {
-  0%, 90%, 100% {
-    transform: translateX(-120%) scaleX(.35);
-    opacity: 0;
-  }
-  91% {
-    transform: translateX(-35%) scaleX(.8);
-    opacity: 1;
-  }
-  94% {
-    transform: translateX(130%) scaleX(1.25);
-    opacity: .9;
-  }
-  95% {
-    opacity: 0;
-  }
-}
-
-@keyframes cyber-scanlines {
-  0%, 90%, 100% {
-    opacity: 0;
+@keyframes cyber-glitch-bottom {
+  0%, 93.3%, 100% {
     transform: translateX(0);
+    opacity: 1;
+    filter: none;
+    clip-path: inset(48% 0 0 0);
   }
-  92% {
-    opacity: .65;
-    transform: translateX(-3px);
+  93.4% {
+    transform: translateX(11px) skewX(7deg);
+    opacity: .8;
+    clip-path: inset(48% 0 0 17%);
   }
-  95% {
-    opacity: 0;
-    transform: translateX(3px);
+  93.8% {
+    transform: translateX(-15px) skewX(-8deg);
+    opacity: .95;
+    filter: blur(.4px);
+    clip-path: inset(48% 13% 0 0);
+  }
+  94.2% {
+    transform: translateX(7px) skewX(4deg);
+    opacity: .55;
+    clip-path: inset(48% 5% 0 26%);
+  }
+  94.8% {
+    transform: translateX(-9px) skewX(-5deg);
+    opacity: 1;
+    filter: blur(.5px);
+    clip-path: inset(48% 21% 0 8%);
+  }
+  95.8% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: none;
+    clip-path: inset(48% 0 0 0);
   }
 }
 
