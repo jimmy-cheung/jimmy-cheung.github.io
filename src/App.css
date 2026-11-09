@@ -262,7 +262,7 @@ h2 span {
   position: relative;
   z-index: 2;
   clip-path: inset(0 0 52% 0);
-  color: #fcee0a;
+  color: #ffffff;
   text-shadow: 0 0 10px rgba(252, 238, 10, .28);
   animation-name: cyber-glitch-top;
 }

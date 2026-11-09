@@ -86,9 +86,7 @@ function App() {
                   <button className="page-link" onClick={() => navigate('about')}>More about me <ArrowUpRight size={15} /></button>
                 </div>
                 <div className="portrait-wrap">
-                  <img className="portrait" src="/jimmy.jpg" alt="Jimmypic" />
-                  <span className="portrait-caption">01 / Self portrait</span>
-                </div>
+                  <img className="portrait" src="/jimmy.jpg" alt="Jimmypic" />               </div>
               </section>
             )}
 
@@ -113,7 +111,7 @@ function App() {
                   <p>Watching and playing soccer. I LOVE Real Madrid!</p>
                   <p>Listening to music. Micheal Jackson, for the way he made culture move.</p>
                   <p>Reading books. Herman Hesse, for the way he explored the human condition.</p>
-                  <p>Playing video games. I enjoy the storytelling and world-building in games like The Legend of Zelda, The Elder Scrolls, and The Witcher.</p>
+                  <p>Playing video games. I enjoy the storytelling and world-building in games like The Legend of Zelda, Cyberpunk 2077, and The Witcher.</p>
                   <p>Following the latest tech trends. I'm always excited to see what's new in the world of software and hardware.</p>
                   <p className="subheading">My School:</p>
                   <p>Ruian High School</p>
