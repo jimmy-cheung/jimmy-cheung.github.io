@@ -31,24 +31,31 @@ const fade = {
   transition: { duration: 0.4, ease: 'easeOut' as const },
 }
 
-function getPageFromHash(): Page {
+function getPageFromUrl(): Page {
   const hash = window.location.hash.slice(1) as Page
   return pages.some((page) => page.id === hash) ? hash : 'home'
 }
 
 function App() {
-  const [page, setPage] = useState<Page>(getPageFromHash)
+  const [page, setPage] = useState<Page>(getPageFromUrl)
   const [menuOpen, setMenuOpen] = useState(false)
   const [copied, setCopied] = useState(false)
 
   useEffect(() => {
-    const handleHashChange = () => setPage(getPageFromHash())
-    window.addEventListener('hashchange', handleHashChange)
-    return () => window.removeEventListener('hashchange', handleHashChange)
+    const initialPage = getPageFromUrl()
+    window.history.replaceState({ page: initialPage }, '', `${window.location.pathname}${window.location.search}`)
+
+    const handlePopState = (event: PopStateEvent) => {
+      const nextPage = event.state?.page as Page | undefined
+      setPage(pages.some((item) => item.id === nextPage) ? nextPage! : 'home')
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
   }, [])
 
   const navigate = (nextPage: Page) => {
-    window.history.pushState({}, '', nextPage === 'home' ? window.location.pathname : `#${nextPage}`)
+    window.history.pushState({ page: nextPage }, '', `${window.location.pathname}${window.location.search}`)
     setPage(nextPage)
     setMenuOpen(false)
     window.scrollTo({ top: 0, behavior: 'instant' })
