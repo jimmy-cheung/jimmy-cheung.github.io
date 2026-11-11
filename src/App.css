@@ -181,7 +181,14 @@ h2 span {
   right: 0;
   display: flex;
   align-items: center;
-  gap: 9px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 106, 26, .62);
+  border-radius: 999px;
+  background: rgba(17, 17, 19, .76);
+  box-shadow:
+    0 0 0 1px rgba(255, 106, 26, .08),
+    0 0 24px rgba(255, 106, 26, .2);
+  animation: floating-pill 4s ease-in-out infinite;
 }
 
 .availability-button,
@@ -189,21 +196,22 @@ h2 span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 34px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  height: 38px;
+  border: 0;
+  border-radius: 0;
   color: var(--grey);
-  background: rgba(17, 17, 19, .58);
+  background: transparent;
   font-size: 12px;
-  transition: color .2s ease-out, border-color .2s ease-out, background-color .2s ease-out, transform .2s ease-out;
+  transition: color .2s ease-out, background-color .2s ease-out;
 }
 
 .availability-button {
-  padding: 0 13px;
+  padding: 0 17px;
 }
 
 .x-button {
   width: 34px;
+  border-left: 1px solid rgba(255, 106, 26, .38);
   color: var(--white);
   font-family: Arial, sans-serif;
   font-size: 17px;
@@ -211,10 +219,17 @@ h2 span {
 
 .availability-button:hover,
 .x-button:hover {
-  border-color: rgba(244, 244, 245, .5);
   color: var(--white);
-  background: rgba(244, 244, 245, .1);
-  transform: translateY(-2px);
+  background: rgba(255, 106, 26, .14);
+}
+
+@keyframes floating-pill {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 .home-note {
