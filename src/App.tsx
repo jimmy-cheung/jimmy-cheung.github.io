@@ -79,10 +79,10 @@ function App() {
                 <div className="home-copy">
                   <p className="eyebrow">16 y/o CEO @SoarkLabs</p>
                   <motion.h1 className="animated-title" initial="initial" animate="animate">
-                    <motion.span variants={fade}>Hello, I&apos;m</motion.span>
-                    <motion.span variants={fade}>Jimmy Cheung.</motion.span>
+                    <motion.span variants={fade}>hi,i&apos;m</motion.span>
+                    <motion.span variants={fade}>Jimmy</motion.span>
                   </motion.h1>
-                  <p className="home-note">Building at the intersection of silicon and interface. Putting a dent in the universe.</p>
+                  <p className="home-note">putting a dent in the universe. i'm a 16 years old developer and entrepreneur. learning and building.</p>
                   <button className="page-link" onClick={() => navigate('about')}>More about me <ArrowUpRight size={15} /></button>
                 </div>
                 <div className="portrait-wrap">
@@ -98,7 +98,7 @@ function App() {
                   <span className="about-title-layer about-title-bottom">Me.</span>
                 </h2>
                 <div className="text-columns">
-                  <p>I build at the intersection of silicon and interface. I&apos;m currently reading Patterson &amp; Hennessy to understand the machine, and writing Swift to build products that matter.</p>
+                  <p>I build things. i love coding. I&apos;m currently reading Patterson &amp; Hennessy to understand the machine, and writing Swift to build Apps. </p>
                   <div>
                     <p className="subheading">Currently building:</p>
                     <p><strong>SSC 2027</strong> — Pushing my technical limits to ship something real.</p>
@@ -113,8 +113,6 @@ function App() {
                   <p>Reading books. Herman Hesse, for the way he explored the human condition.</p>
                   <p>Playing video games. I enjoy the storytelling and world-building in games like The Legend of Zelda, Cyberpunk 2077, and The Witcher.</p>
                   <p>Following the latest tech trends. I'm always excited to see what's new in the world of software and hardware.</p>
-                  <p className="subheading">My School:</p>
-                  <p>Ruian High School</p>
                 </div>
               </section>
             )}
@@ -155,7 +153,7 @@ function App() {
       </main>
 
       <footer className="site-footer">
-        <span>© 2025 Jimmy Cheung</span>
+        <span>© 2026 Jimmy Cheung.</span>
         <button onClick={() => navigate('links')}>Links <ArrowUpRight size={13} /></button>
       </footer>
     </div>
