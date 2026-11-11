@@ -454,16 +454,31 @@ h2 span {
 .about-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 22px;
+  gap: 32px;
   max-width: 730px;
-  margin: 70px 0 0 22%;
+  margin: 84px 0 0 22%;
 }
 
 .about-block {
-  padding: 28px 30px;
+  padding: 34px 32px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(17, 17, 19, .45);
+  transition:
+    border-color .25s ease-out,
+    background-color .25s ease-out,
+    box-shadow .25s ease-out,
+    transform .25s ease-out;
+}
+
+.about-block:hover {
+  border-color: rgba(244, 244, 245, .45);
+  background: rgba(25, 25, 28, .72);
+  box-shadow:
+    0 0 0 1px rgba(244, 244, 245, .06),
+    0 14px 40px rgba(0, 0, 0, .28),
+    0 0 28px rgba(244, 244, 245, .08);
+  transform: translateY(-5px);
 }
 
 .about-block p {
@@ -495,7 +510,7 @@ h2 span {
   display: grid;
   grid-column: 1 / -1;
   grid-template-columns: 1fr 1.8fr;
-  gap: 15px 32px;
+  gap: 18px 38px;
 }
 
 .about-extra .subheading {
@@ -702,13 +717,13 @@ h2 span {
 
   .about-layout {
     grid-template-columns: 1fr;
-    gap: 24px;
-    margin: 55px 0 0;
+    gap: 28px;
+    margin: 64px 0 0;
   }
 
   .about-extra {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
   }
 
   .project-row {
