@@ -181,46 +181,49 @@ h2 span {
   right: 0;
   display: flex;
   align-items: center;
-  overflow: hidden;
-  border: 1px solid rgba(255, 106, 26, .62);
-  border-radius: 999px;
-  background: rgba(17, 17, 19, .76);
-  box-shadow:
-    0 0 0 1px rgba(255, 106, 26, .08),
-    0 0 24px rgba(255, 106, 26, .2);
   animation: floating-pill 4s ease-in-out infinite;
 }
 
-.availability-button,
-.x-button {
+.x-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 38px;
-  border: 0;
-  border-radius: 0;
-  color: var(--grey);
+  gap: 14px;
+  height: 42px;
+  padding: 0 10px 0 18px;
+  border: 1.5px solid #ff6a1a;
+  border-radius: 999px;
+  color: #fff;
   background: transparent;
-  font-size: 12px;
-  transition: color .2s ease-out, background-color .2s ease-out;
+  box-shadow:
+    0 0 8px rgba(255, 106, 26, .8),
+    0 0 24px rgba(255, 106, 26, .45),
+    inset 0 0 12px rgba(255, 106, 26, .12);
+  font-size: 13px;
+  font-weight: 600;
+  transition: color .2s ease-out, background-color .2s ease-out, box-shadow .2s ease-out, transform .2s ease-out;
 }
 
-.availability-button {
-  padding: 0 17px;
+.x-cta:hover {
+  color: #fff;
+  background: rgba(255, 106, 26, .2);
+  box-shadow:
+    0 0 10px rgba(255, 106, 26, 1),
+    0 0 36px rgba(255, 106, 26, .72),
+    inset 0 0 18px rgba(255, 106, 26, .2);
+  transform: translateY(-3px);
 }
 
-.x-button {
-  width: 34px;
-  border-left: 1px solid rgba(255, 106, 26, .38);
-  color: var(--white);
+.x-mark {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: #050505;
+  background: #ff6a1a;
   font-family: Arial, sans-serif;
   font-size: 17px;
-}
-
-.availability-button:hover,
-.x-button:hover {
-  color: var(--white);
-  background: rgba(255, 106, 26, .14);
 }
 
 @keyframes floating-pill {

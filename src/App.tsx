@@ -88,11 +88,9 @@ function App() {
             {page === 'home' && (
               <section className="page home-page">
                 <div className="home-quick-links">
-                  <button className="availability-button" onClick={() => navigate('links')}>
-                    Open to work
-                  </button>
-                  <a className="x-button" href="https://x.com/twzkd" target="_blank" rel="noreferrer" aria-label="Open X profile">
-                    <span aria-hidden="true">𝕏</span>
+                  <a className="x-cta" href="https://x.com/twzkd" target="_blank" rel="noreferrer" aria-label="Open Jimmy's X profile">
+                    <span>Open to work</span>
+                    <span className="x-mark" aria-hidden="true">𝕏</span>
                   </a>
                 </div>
                 <div className="home-copy">
