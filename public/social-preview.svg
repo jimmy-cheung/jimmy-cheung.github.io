@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="628" viewBox="0 0 1200 628" role="img" aria-labelledby="title description">
+  <title id="title">Jimmy — Building &amp; Learning</title>
+  <desc id="description">Jimmy Cheung, developer and entrepreneur, building at the intersection of silicon and interface.</desc>
+  <defs>
+    <linearGradient id="yellow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff45c"/>
+      <stop offset="1" stop-color="#fcee0a"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="70%" cy="36%" r="62%">
+      <stop offset="0" stop-color="#fcee0a" stop-opacity=".12"/>
+      <stop offset=".48" stop-color="#fcee0a" stop-opacity=".025"/>
+      <stop offset="1" stop-color="#fcee0a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#fff" stroke-opacity=".035"/>
+    </pattern>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="13" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="628" fill="#050505"/>
+  <rect width="1200" height="628" fill="url(#grid)"/>
+  <rect width="1200" height="628" fill="url(#halo)"/>
+
+  <g fill="#a1a1aa" opacity=".38">
+    <circle cx="92" cy="104" r="1.5"/><circle cx="166" cy="526" r="1"/>
+    <circle cx="318" cy="74" r="1.2"/><circle cx="454" cy="562" r="1.4"/>
+    <circle cx="720" cy="96" r="1"/><circle cx="1075" cy="144" r="1.5"/>
+    <circle cx="1110" cy="524" r="1"/><circle cx="872" cy="548" r="1.4"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="78" y="82" fill="#a1a1aa" font-family="monospace" font-size="15" letter-spacing="3">16 Y/O CEO @SOARKLABS</text>
+    <circle cx="59" cy="76" r="5" fill="#fcee0a" filter="url(#softGlow)"/>
+
+    <text x="78" y="292" fill="#00eaff" opacity=".78" font-size="112" font-weight="700" letter-spacing="-7">Jimmy</text>
+    <text x="88" y="284" fill="#ff164b" opacity=".72" font-size="112" font-weight="700" letter-spacing="-7">Jimmy</text>
+    <text x="82" y="288" fill="url(#yellow)" font-size="112" font-weight="700" letter-spacing="-7">Jimmy</text>
+
+    <rect x="82" y="312" width="165" height="3" fill="#fcee0a"/>
+    <rect x="257" y="312" width="36" height="3" fill="#ff164b"/>
+    <rect x="302" y="312" width="58" height="3" fill="#00eaff"/>
+
+    <text x="84" y="380" fill="#f4f4f5" font-size="27" font-weight="400" letter-spacing=".5">Building &amp; Learning.</text>
+    <text x="84" y="432" fill="#a1a1aa" font-size="17">Developer · Entrepreneur · Product Builder</text>
+    <text x="84" y="480" fill="#66666f" font-family="monospace" font-size="13" letter-spacing="1.5">SILICON / INTERFACE / IDEAS</text>
+
+    <text x="1120" y="82" text-anchor="end" fill="#66666f" font-family="monospace" font-size="12" letter-spacing="2">NIGHT CITY / 2077</text>
+    <text x="1120" y="560" text-anchor="end" fill="#a1a1aa" font-family="monospace" font-size="13">jimmy-cheung.github.io</text>
+  </g>
+
+  <path d="M78 524H1120" stroke="#27272a"/>
+  <path d="M78 524H365" stroke="#fcee0a" stroke-width="2"/>
+  <path d="M378 524H422" stroke="#ff164b" stroke-width="2"/>
+  <path d="M435 524H490" stroke="#00eaff" stroke-width="2"/>
+</svg>
