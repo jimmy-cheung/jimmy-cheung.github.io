@@ -143,7 +143,7 @@ main {
   margin: 0;
   color: var(--grey);
   font-family: 'DM Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
@@ -178,7 +178,7 @@ h2 span {
   max-width: 290px;
   margin-top: 38px;
   color: var(--grey);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -201,7 +201,7 @@ h2 span {
   border-bottom: 1px solid var(--grey);
   color: var(--white);
   background: transparent;
-  font-size: 13px;
+  font-size: 14px;
   transition: gap .2s ease-out, color .2s ease-out;
 }
 
@@ -451,30 +451,37 @@ h2 span {
   }
 }
 
-.text-columns {
+.about-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 75px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 22px;
   max-width: 730px;
   margin: 70px 0 0 22%;
 }
 
-.text-columns p {
+.about-block {
+  padding: 28px 30px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(17, 17, 19, .45);
+}
+
+.about-block p {
   color: var(--grey);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.8;
 }
 
-.text-columns > div {
+.about-building {
   display: grid;
   gap: 15px;
 }
 
-.text-columns .subheading {
+.about-block .subheading {
   margin-bottom: 2px;
   color: var(--white);
   font-family: 'DM Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: .06em;
   text-transform: uppercase;
 }
@@ -486,25 +493,22 @@ h2 span {
 
 .about-extra {
   display: grid;
+  grid-column: 1 / -1;
   grid-template-columns: 1fr 1.8fr;
   gap: 15px 32px;
-  max-width: 730px;
-  margin: 55px 0 0 22%;
-  padding-top: 23px;
-  border-top: 1px solid var(--line);
 }
 
 .about-extra .subheading {
   color: var(--white);
   font-family: 'DM Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: .06em;
   text-transform: uppercase;
 }
 
 .about-extra p {
   color: var(--grey);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.8;
 }
 
@@ -559,7 +563,7 @@ h2 span {
 }
 
 .project-name {
-  font-size: 17px;
+  font-size: 19px;
   transition: transform .2s ease-out;
 }
 
@@ -585,7 +589,7 @@ h2 span {
 .links-list button,
 .disabled-link {
   grid-template-columns: 1fr 25px;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .links-list a svg,
@@ -619,7 +623,7 @@ h2 span {
   border-top: 1px solid var(--line);
   color: var(--dim);
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .site-footer button {
@@ -696,7 +700,7 @@ h2 span {
     margin-left: auto;
   }
 
-  .text-columns {
+  .about-layout {
     grid-template-columns: 1fr;
     gap: 24px;
     margin: 55px 0 0;
@@ -705,7 +709,6 @@ h2 span {
   .about-extra {
     grid-template-columns: 1fr;
     gap: 10px;
-    margin-left: 0;
   }
 
   .project-row {
