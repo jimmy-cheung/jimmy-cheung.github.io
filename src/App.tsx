@@ -87,6 +87,14 @@ function App() {
           <motion.div key={page} {...fade}>
             {page === 'home' && (
               <section className="page home-page">
+                <div className="home-quick-links">
+                  <button className="availability-button" onClick={() => navigate('links')}>
+                    Open to work
+                  </button>
+                  <a className="x-button" href="https://x.com/twzkd" target="_blank" rel="noreferrer" aria-label="Open X profile">
+                    <span aria-hidden="true">𝕏</span>
+                  </a>
+                </div>
                 <div className="home-copy">
                   <p className="eyebrow">16 y/o CEO @SoarkLabs</p>
                   <motion.h1 className="animated-title" initial="initial" animate="animate">

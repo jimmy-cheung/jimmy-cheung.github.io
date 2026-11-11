@@ -168,10 +168,53 @@ h2 span {
 }
 
 .home-page {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 390px;
   align-items: center;
   gap: 90px;
+}
+
+.home-quick-links {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.availability-button,
+.x-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--grey);
+  background: rgba(17, 17, 19, .58);
+  font-size: 12px;
+  transition: color .2s ease-out, border-color .2s ease-out, background-color .2s ease-out, transform .2s ease-out;
+}
+
+.availability-button {
+  padding: 0 13px;
+}
+
+.x-button {
+  width: 34px;
+  color: var(--white);
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+}
+
+.availability-button:hover,
+.x-button:hover {
+  border-color: rgba(244, 244, 245, .5);
+  color: var(--white);
+  background: rgba(244, 244, 245, .1);
+  transform: translateY(-2px);
 }
 
 .home-note {
@@ -708,6 +751,11 @@ h2 span {
     flex-direction: column;
     align-items: stretch;
     gap: 60px;
+  }
+
+  .home-quick-links {
+    top: 36px;
+    right: 0;
   }
 
   .portrait-wrap {
