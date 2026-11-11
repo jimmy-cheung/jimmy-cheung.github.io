@@ -188,7 +188,7 @@ h2 span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 10px;
   height: 42px;
   padding: 0 10px 0 18px;
   border: 1.5px solid #ff6a1a;
@@ -217,11 +217,7 @@ h2 span {
 .x-mark {
   display: grid;
   place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  color: #050505;
-  background: #ff6a1a;
+  color: #ff6a1a;
   font-family: Arial, sans-serif;
   font-size: 17px;
 }
