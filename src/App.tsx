@@ -32,8 +32,14 @@ const fade = {
 }
 
 function getPageFromUrl(): Page {
-  const hash = window.location.hash.slice(1) as Page
-  return pages.some((page) => page.id === hash) ? hash : 'home'
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, '') as Page
+  const legacyHash = window.location.hash.slice(1) as Page
+  const candidate = path || legacyHash
+  return pages.some((page) => page.id === candidate) ? candidate : 'home'
+}
+
+function getPathForPage(page: Page): string {
+  return page === 'home' ? '/' : `/${page}`
 }
 
 function App() {
@@ -43,11 +49,11 @@ function App() {
 
   useEffect(() => {
     const initialPage = getPageFromUrl()
-    window.history.replaceState({ page: initialPage }, '', `${window.location.pathname}${window.location.search}`)
+    window.history.replaceState({ page: initialPage }, '', `${getPathForPage(initialPage)}${window.location.search}`)
 
     const handlePopState = (event: PopStateEvent) => {
       const nextPage = event.state?.page as Page | undefined
-      setPage(pages.some((item) => item.id === nextPage) ? nextPage! : 'home')
+      setPage(pages.some((item) => item.id === nextPage) ? nextPage! : getPageFromUrl())
     }
 
     window.addEventListener('popstate', handlePopState)
@@ -55,7 +61,7 @@ function App() {
   }, [])
 
   const navigate = (nextPage: Page) => {
-    window.history.pushState({ page: nextPage }, '', `${window.location.pathname}${window.location.search}`)
+    window.history.pushState({ page: nextPage }, '', `${getPathForPage(nextPage)}${window.location.search}`)
     setPage(nextPage)
     setMenuOpen(false)
     window.scrollTo({ top: 0, behavior: 'instant' })
