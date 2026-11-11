@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowUpRight, Copy, Mail, Menu, X } from 'lucide-react'
+import { ArrowUpRight, Copy, FolderKanban, House, Link2, Mail, Menu, UserRound, X } from 'lucide-react'
 import './App.css'
 
 type Page = 'home' | 'about' | 'projects' | 'links'
@@ -11,6 +11,13 @@ const pages: { id: Page; label: string }[] = [
   { id: 'projects', label: 'Projects' },
   { id: 'links', label: 'Links' },
 ]
+
+const pageIcons = {
+  home: House,
+  about: UserRound,
+  projects: FolderKanban,
+  links: Link2,
+}
 
 const projects = [
   { year: '2027', name: 'Bloom App', type: 'Swift Student Challenge' },
@@ -60,11 +67,15 @@ function App() {
           <img className="wordmark-avatar" src="/jimmy.jpg" alt="" />
         </button>
         <nav className={`desktop-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Primary navigation">
-          {pages.map((item) => (
-            <button className={page === item.id ? 'active' : ''} key={item.id} onClick={() => navigate(item.id)}>
-              {item.label}
-            </button>
-          ))}
+          {pages.map((item) => {
+            const PageIcon = pageIcons[item.id]
+            return (
+              <button className={page === item.id ? 'active' : ''} key={item.id} onClick={() => navigate(item.id)}>
+                <PageIcon size={16} strokeWidth={1.8} />
+                <span>{item.label}</span>
+              </button>
+            )
+          })}
         </nav>
         <button className="menu-toggle" onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle navigation">
           {menuOpen ? <X size={17} /> : <Menu size={17} />}
