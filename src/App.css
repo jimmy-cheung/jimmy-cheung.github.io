@@ -524,15 +524,15 @@ h2 span {
 .about-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 32px;
-  max-width: 730px;
-  margin: 84px 0 0 22%;
+  gap: 24px;
+  max-width: 860px;
+  margin: 76px 0 0 auto;
 }
 
 .about-block {
-  padding: 34px 32px;
+  padding: 30px 32px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: rgba(17, 17, 19, .45);
   transition:
     border-color .25s ease-out,
@@ -553,8 +553,21 @@ h2 span {
 
 .about-block p {
   color: var(--grey);
-  font-size: 17px;
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.about-intro {
+  grid-column: 1 / -1;
+  padding: 38px 40px;
+}
+
+.about-intro p {
+  max-width: 680px;
+  color: var(--white);
+  font-size: clamp(20px, 2.4vw, 29px);
+  line-height: 1.35;
+  letter-spacing: -.025em;
 }
 
 .about-building {
@@ -578,9 +591,7 @@ h2 span {
 
 .about-extra {
   display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: 1fr 1.8fr;
-  gap: 18px 38px;
+  gap: 15px;
 }
 
 .about-extra .subheading {
@@ -594,11 +605,17 @@ h2 span {
 .about-extra p {
   color: var(--grey);
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.75;
+}
+
+.about-extra p:not(.subheading) {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(63, 63, 70, .65);
 }
 
 .about-extra p:last-child {
-  color: var(--white);
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .coming-soon {

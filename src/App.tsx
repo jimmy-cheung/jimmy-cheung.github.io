@@ -129,7 +129,7 @@ function App() {
                 </h2>
                 <div className="about-layout">
                   <div className="about-block about-intro">
-                    <p>I build things. i love coding. I&apos;m currently reading Patterson &amp; Hennessy to understand the machine, and writing Swift to build Apps. </p>
+                    <p>I build things. i love coding. I&apos;m writing Swift to build Apps.</p>
                   </div>
                   <div className="about-block about-building">
                     <p className="subheading">Currently building:</p>
@@ -140,8 +140,6 @@ function App() {
                   <div className="about-block about-extra">
                     <p className="subheading">Hobbies &amp; influences:</p>
                     <p>Watching and playing soccer. I LOVE Real Madrid!</p>
-                    <p>Listening to music. Micheal Jackson, for the way he made culture move.</p>
-                    <p>Reading books. Herman Hesse, for the way he explored the human condition.</p>
                     <p>Playing video games. I enjoy the storytelling and world-building in games like The Legend of Zelda, Cyberpunk 2077, and The Witcher.</p>
                     <p>Following the latest tech trends. I'm always excited to see what's new in the world of software and hardware.</p>
                   </div>
