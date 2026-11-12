@@ -129,7 +129,7 @@ function App() {
                 </h2>
                 <div className="about-layout">
                   <div className="about-block about-intro">
-                    <p>I build things. i love coding. I&apos;m writing Swift to build Apps.</p>
+                    <p>Shipping products and new stuff while in High School.</p>
                   </div>
                   <div className="about-block about-building">
                     <p className="subheading">Currently building:</p>
