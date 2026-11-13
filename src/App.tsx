@@ -129,7 +129,7 @@ function App() {
                 </h2>
                 <div className="about-layout">
                   <div className="about-block about-intro">
-                    <p>Shipping products and new stuff while in High School.</p>
+                    <p>Shipping products and new stuff while in Ruian High School.</p>
                   </div>
                   <div className="about-block about-building">
                     <p className="subheading">Currently building:</p>
