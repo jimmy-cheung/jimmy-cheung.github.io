@@ -280,6 +280,19 @@ h2 span {
   color: var(--grey);
 }
 
+.building-timer {
+  margin-top: 58px;
+  color: var(--dim);
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  letter-spacing: .02em;
+}
+
+.building-timer span {
+  color: var(--grey);
+  font-variant-numeric: tabular-nums;
+}
+
 .portrait-wrap {
   position: relative;
 }

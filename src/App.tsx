@@ -24,6 +24,9 @@ const projects = [
   { year: '2026', name: 'Soark App', type: 'Project planning · prev' },
 ]
 
+const buildingStart = new Date(2024, 6, 1).getTime()
+const millisecondsPerYear = 365.2425 * 24 * 60 * 60 * 1000
+
 const fade = {
   initial: { opacity: 0, y: 16 },
   animate: { opacity: 1, y: 0 },
@@ -46,6 +49,15 @@ function App() {
   const [page, setPage] = useState<Page>(getPageFromUrl)
   const [menuOpen, setMenuOpen] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [buildingYears, setBuildingYears] = useState(() => (Date.now() - buildingStart) / millisecondsPerYear)
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setBuildingYears((Date.now() - buildingStart) / millisecondsPerYear)
+    }, 100)
+
+    return () => window.clearInterval(timer)
+  }, [])
 
   useEffect(() => {
     const initialPage = getPageFromUrl()
@@ -114,6 +126,9 @@ function App() {
                   </motion.h1>
                   <p className="home-note">putting a dent in the universe. i'm a 16 years old developer and entrepreneur. learning and building.</p>
                   <button className="page-link" onClick={() => navigate('about')}>More about me <ArrowUpRight size={15} /></button>
+                  <p className="building-timer">
+                    Building for <span>{buildingYears.toFixed(8)}</span> years
+                  </p>
                 </div>
                 <div className="portrait-wrap">
                   <img className="portrait" src="/jimmy.jpg" alt="Jimmypic" />               </div>
