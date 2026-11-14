@@ -54,7 +54,7 @@ function App() {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setBuildingYears((Date.now() - buildingStart) / millisecondsPerYear)
-    }, 100)
+    }, 10)
 
     return () => window.clearInterval(timer)
   }, [])
@@ -127,7 +127,7 @@ function App() {
                   <p className="home-note">putting a dent in the universe. i'm a 16 years old developer and entrepreneur. learning and building.</p>
                   <button className="page-link" onClick={() => navigate('about')}>More about me <ArrowUpRight size={15} /></button>
                   <p className="building-timer">
-                    Building for <span>{buildingYears.toFixed(8)}</span> years
+                    Building for <span>{buildingYears.toFixed(13)}</span> years
                   </p>
                 </div>
                 <div className="portrait-wrap">
