@@ -144,6 +144,7 @@ function App() {
                 </h2>
                 <div className="about-layout">
                   <div className="about-block about-intro">
+                    <p>I&apos;m Jimmy Cheung, a 16y/o developer and entrepreneur.</p>
                     <p>Shipping products and new stuff while in Ruian High School.</p>
                   </div>
                   <div className="about-block about-building">
