@@ -11,13 +11,6 @@
   min-height: 100vh;
   color: var(--white);
   background-color: var(--black);
-  background-image:
-    radial-gradient(circle at 8% 18%, rgba(161, 161, 170, .22) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 74% 12%, rgba(161, 161, 170, .16) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 42% 72%, rgba(161, 161, 170, .18) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 92% 84%, rgba(161, 161, 170, .2) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 18% 91%, rgba(161, 161, 170, .13) 0 1px, transparent 1.5px);
-  background-size: 137px 151px, 211px 193px, 173px 227px, 257px 181px, 191px 239px;
 }
 
 .site-header,
