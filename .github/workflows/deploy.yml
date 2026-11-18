@@ -37,7 +37,10 @@ jobs:
         run: npm run build
 
       - name: Add SPA route fallback
-        run: cp dist/index.html dist/404.html
+        run: |
+          cp dist/index.html dist/404.html
+          mkdir -p dist/blog
+          cp dist/index.html dist/blog/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
