@@ -41,6 +41,7 @@ jobs:
           cp dist/index.html dist/404.html
           mkdir -p dist/blog
           cp dist/index.html dist/blog/index.html
+          sed -i 's#="./assets/#="/assets/#g' dist/blog/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
