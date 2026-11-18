@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowUpRight, Copy, FolderKanban, House, Link2, Mail, Menu, UserRound, X } from 'lucide-react'
+import { ArrowUpRight, Copy, FolderKanban, House, Link2, Mail, Menu, NotebookPen, UserRound, X } from 'lucide-react'
+import { posts } from './posts'
 import './App.css'
 
-type Page = 'home' | 'about' | 'projects' | 'links'
+type Page = 'home' | 'about' | 'projects' | 'blog' | 'links'
 
 const pages: { id: Page; label: string }[] = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
+  { id: 'blog', label: 'Blog' },
   { id: 'links', label: 'Links' },
 ]
 
@@ -16,6 +18,7 @@ const pageIcons = {
   home: House,
   about: UserRound,
   projects: FolderKanban,
+  blog: NotebookPen,
   links: Link2,
 }
 
@@ -35,7 +38,7 @@ const fade = {
 }
 
 function getPageFromUrl(): Page {
-  const path = window.location.pathname.replace(/^\/+|\/+$/g, '') as Page
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, '').split('/')[0] as Page
   const legacyHash = window.location.hash.slice(1) as Page
   const candidate = path || legacyHash
   return pages.some((page) => page.id === candidate) ? candidate : 'home'
@@ -117,6 +120,10 @@ function App() {
                     <span>Open to work</span>
                     <span className="x-mark" aria-hidden="true">𝕏</span>
                   </a>
+                  <button className="blog-cta" onClick={() => navigate('blog')}>
+                    <NotebookPen size={15} strokeWidth={1.8} />
+                    <span>Blog</span>
+                  </button>
                 </div>
                 <div className="home-copy">
                   <p className="eyebrow">16 y/o CEO @SoarkLabs</p>
@@ -179,6 +186,42 @@ function App() {
                   ))}
                 </div>
                 <p className="coming-soon">More projects coming soon.</p>
+              </section>
+            )}
+
+            {page === 'blog' && (
+              <section className="page blog-page">
+                <p className="eyebrow">Notes &amp; field logs</p>
+                <h2>Building<br /><span>in public.</span></h2>
+                <div className="blog-intro">
+                  <p>Thoughts on code, products, learning, and the process of shipping while young.</p>
+                  <span>2026</span>
+                </div>
+                <div className="blog-list">
+                  {posts.length === 0 ? (
+                    <article className="blog-empty">
+                      <span className="blog-index">00</span>
+                      <div>
+                        <p className="blog-status">FIRST ENTRY PENDING</p>
+                        <h3>Notes are coming soon.</h3>
+                        <p>Build logs, lessons, experiments, and selected ideas will be published here.</p>
+                      </div>
+                      <span className="blog-date">SOON</span>
+                    </article>
+                  ) : (
+                    posts.map((post, index) => (
+                      <article className="blog-post" key={post.slug}>
+                        <span className="blog-index">{String(index + 1).padStart(2, '0')}</span>
+                        <div>
+                          <p className="blog-status">{post.tags.join(' · ')}</p>
+                          <h3>{post.title}</h3>
+                          <p>{post.summary}</p>
+                        </div>
+                        <time className="blog-date">{post.date}</time>
+                      </article>
+                    ))
+                  )}
+                </div>
               </section>
             )}
 
